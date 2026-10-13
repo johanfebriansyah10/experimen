@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Button Increment</title>
+		<style>
+			.content {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+			}
+
+			#generateButton {
+				margin-top: 5px;
+				margin-bottom: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content" hidden>
+			<button class="incrementButton">Tekan aku : )</button>
+			<h3>
+				Kamu sudah menekan tombol di atas sebanyak
+				<span id="count">0</span> kali
+			</h3>
+		</div>
+		<script>
+			function increment() {
+				document.getElementById("count").innerText++;
+				if (Number(document.getElementById("count").innerText == 7)) {
+					const hiddenMessage = document.createElement("h4");
+					hiddenMessage.innerText =
+						"Selamat anda mendapatkan hadian tersembunyi";
+					const img = document.createElement("img");
+					img.setAttribute(
+						"src",
+						"https://raw.githubusercontent.com/dicodingacademy/a315-web-pemula-labs/shared-files/catto.jpg",
+					);
+					const content = document.querySelector(".content");
+					content.appendChild(hiddenMessage).appendChild(img);
+				}
+			}
+			function welcome() {
+				alert("test test test");
+				document.querySelector(".content").removeAttribute("hidden");
+			}
+			document.querySelector(".incrementButton").onclick = increment;
+			document.body.onload = welcome;
+		</script>
+	</body>
+</html>
