@@ -1,0 +1,593 @@
+/* ========================================
+       1. CSS VARIABLES & RESET
+    ======================================== */
+
+:root {
+	--color-primary: #10b981;
+	--color-primary-hover: #059669;
+	--color-dark: #0b1220;
+	--color-surface: #111c30;
+	--color-text: #f8fafc;
+	--color-muted: #a8b3c7;
+	--color-border: rgb(255 255 255 / 10%);
+
+	--container-width: 1200px;
+	--navbar-height: 76px;
+	--navbar-radius: 18px;
+
+	--transition-fast: 180ms ease;
+	--transition-smooth: 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 100px;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	font-family:
+		Inter,
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		sans-serif;
+	line-height: 1.6;
+	color: var(--color-text);
+	background: var(--color-dark);
+}
+
+body,
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	color: inherit;
+}
+
+button {
+	font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+	outline: 3px solid #6ee7b7;
+	outline-offset: 4px;
+}
+
+/* ========================================
+       2. NAVBAR
+    ======================================== */
+
+.navbar {
+	position: fixed;
+	inset: 0 0 auto;
+	z-index: 1000;
+	padding: 12px 20px;
+
+	background: rgb(11 18 32 / 82%);
+	border-bottom: 1px solid transparent;
+	backdrop-filter: blur(18px);
+	-webkit-backdrop-filter: blur(18px);
+
+	transition:
+		background var(--transition-smooth),
+		border-color var(--transition-smooth),
+		box-shadow var(--transition-smooth);
+}
+
+.navbar.is-scrolled {
+	background: rgb(11 18 32 / 96%);
+	border-bottom-color: var(--color-border);
+	box-shadow: 0 10px 35px rgb(0 0 0 / 15%);
+}
+
+.navbar__container {
+	width: 100%;
+	max-width: var(--container-width);
+	min-height: var(--navbar-height);
+	margin-inline: auto;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+/* ========================================
+       3. BRAND / LOGO
+    ======================================== */
+
+.navbar__brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	flex-shrink: 0;
+
+	color: var(--color-text);
+	font-size: 1.35rem;
+	font-weight: 800;
+	letter-spacing: -0.6px;
+	text-decoration: none;
+}
+
+.navbar__logo {
+	display: grid;
+	width: 38px;
+	height: 38px;
+	place-items: center;
+
+	color: #031b16;
+	background: linear-gradient(135deg, #6ee7b7, var(--color-primary));
+	border-radius: 12px;
+
+	transition: transform var(--transition-smooth);
+}
+
+.navbar__brand:hover .navbar__logo {
+	transform: rotate(-8deg) scale(1.05);
+}
+
+.navbar__logo svg {
+	width: 23px;
+	height: 23px;
+}
+
+/* ========================================
+       4. MENU DESKTOP
+    ======================================== */
+
+.navbar__menu {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navbar__link {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 10px 14px;
+
+	color: var(--color-muted);
+	font-size: 0.94rem;
+	font-weight: 500;
+	text-decoration: none;
+
+	transition:
+		color var(--transition-fast),
+		background var(--transition-fast);
+}
+
+.navbar__link::after {
+	position: absolute;
+	right: 14px;
+	bottom: 4px;
+	left: 14px;
+
+	height: 2px;
+	content: "";
+	background: var(--color-primary);
+	border-radius: 99px;
+
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform var(--transition-smooth);
+}
+
+.navbar__link:hover,
+.navbar__link.is-active {
+	color: var(--color-text);
+}
+
+.navbar__link:hover::after,
+.navbar__link.is-active::after {
+	transform: scaleX(1);
+}
+
+/* ========================================
+       5. TOMBOL CTA
+    ======================================== */
+
+.navbar__actions {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-shrink: 0;
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+
+	min-height: 44px;
+	padding: 11px 20px;
+
+	border: 1px solid transparent;
+	border-radius: 999px;
+
+	font-size: 0.9rem;
+	font-weight: 700;
+	text-decoration: none;
+	white-space: nowrap;
+
+	transition:
+		transform var(--transition-fast),
+		background var(--transition-fast),
+		box-shadow var(--transition-fast);
+}
+
+.button--primary {
+	color: #03251a;
+	background: var(--color-primary);
+	box-shadow: 0 5px 18px rgb(16 185 129 / 18%);
+}
+
+.button--primary:hover {
+	background: #34d399;
+	box-shadow: 0 8px 24px rgb(16 185 129 / 25%);
+	transform: translateY(-2px);
+}
+
+.button__arrow {
+	font-size: 1.15rem;
+	transition: transform var(--transition-fast);
+}
+
+.button:hover .button__arrow {
+	transform: translateX(3px);
+}
+
+/* ========================================
+       6. TOMBOL HAMBURGER
+    ======================================== */
+
+.navbar__toggle {
+	display: none;
+	width: 46px;
+	height: 46px;
+	padding: 0;
+
+	align-items: center;
+	justify-content: center;
+
+	color: var(--color-text);
+	background: rgb(255 255 255 / 5%);
+	border: 1px solid var(--color-border);
+	border-radius: 14px;
+	cursor: pointer;
+
+	transition:
+		background var(--transition-fast),
+		border-color var(--transition-fast);
+}
+
+.navbar__toggle:hover {
+	background: rgb(255 255 255 / 10%);
+	border-color: rgb(255 255 255 / 20%);
+}
+
+.navbar__toggle-icon {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+}
+
+.navbar__toggle-line {
+	display: block;
+	width: 21px;
+	height: 2px;
+
+	background: var(--color-text);
+	border-radius: 99px;
+
+	transition:
+		transform var(--transition-smooth),
+		opacity var(--transition-fast);
+}
+
+.navbar__toggle.is-active .navbar__toggle-line:first-child {
+	transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle.is-active .navbar__toggle-line:nth-child(2) {
+	opacity: 0;
+	transform: scaleX(0);
+}
+
+.navbar__toggle.is-active .navbar__toggle-line:last-child {
+	transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ========================================
+       7. KONTEN DEMO
+    ======================================== */
+
+.hero {
+	position: relative;
+	display: grid;
+	min-height: 100svh;
+	padding: calc(var(--navbar-height) + 80px) 24px 80px;
+	place-items: center;
+	overflow: hidden;
+	isolation: isolate;
+	text-align: center;
+
+	background:
+		radial-gradient(
+			ellipse at 50% 25%,
+			rgb(16 185 129 / 13%),
+			transparent 50%
+		),
+		linear-gradient(160deg, #111c30, #0b1220 65%);
+}
+
+.hero__content {
+	width: 100%;
+	max-width: 760px;
+	margin-inline: auto;
+}
+
+.hero__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 20px;
+	padding: 8px 14px;
+
+	color: #a7f3d0;
+	background: rgb(16 185 129 / 9%);
+	border: 1px solid rgb(16 185 129 / 25%);
+	border-radius: 999px;
+
+	font-size: 0.85rem;
+	font-weight: 600;
+}
+
+.hero__badge::before {
+	width: 7px;
+	height: 7px;
+	content: "";
+	background: var(--color-primary);
+	border-radius: 50%;
+	box-shadow: 0 0 12px var(--color-primary);
+}
+
+.hero__title {
+	margin: 0 0 20px;
+	font-size: clamp(2.5rem, 7vw, 5rem);
+	font-weight: 800;
+	line-height: 1.08;
+	letter-spacing: -2px;
+}
+
+.hero__title span {
+	color: #6ee7b7;
+}
+
+.hero__description {
+	max-width: 600px;
+	margin: 0 auto 32px;
+	color: var(--color-muted);
+	font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+.hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 12px;
+}
+
+.button--secondary {
+	color: var(--color-text);
+	background: rgb(255 255 255 / 5%);
+	border-color: var(--color-border);
+}
+
+.button--secondary:hover {
+	background: rgb(255 255 255 / 10%);
+	transform: translateY(-2px);
+}
+
+.section {
+	max-width: var(--container-width);
+	margin-inline: auto;
+	padding: 80px 24px;
+}
+
+.section h2 {
+	margin-top: 0;
+	font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.section p {
+	color: var(--color-muted);
+}
+
+/* ========================================
+       8. RESPONSIVE: TABLET & MOBILE
+    ======================================== */
+
+@media (max-width: 768px) {
+	.navbar {
+		padding: 10px 16px;
+	}
+
+	.navbar__container {
+		min-height: 58px;
+		gap: 12px;
+	}
+
+	.navbar__brand {
+		font-size: 1.2rem;
+	}
+
+	.navbar__logo {
+		width: 36px;
+		height: 36px;
+	}
+
+	.navbar__toggle {
+		display: inline-flex;
+		flex-shrink: 0;
+	}
+
+	.navbar__actions {
+		margin-left: auto;
+	}
+
+	.navbar__actions .button {
+		min-height: 42px;
+		padding: 10px 14px;
+		font-size: 0.82rem;
+	}
+
+	.navbar__menu {
+		position: absolute;
+		top: calc(100% + 10px);
+		right: 16px;
+		left: 16px;
+
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 5px;
+
+		max-height: 0;
+		padding: 0 12px;
+		overflow: hidden;
+		visibility: hidden;
+		opacity: 0;
+
+		background: rgb(17 28 48 / 98%);
+		border: 1px solid transparent;
+		border-radius: var(--navbar-radius);
+		box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
+
+		transform: translateY(-8px);
+
+		transition:
+			max-height var(--transition-smooth),
+			padding var(--transition-smooth),
+			opacity var(--transition-smooth),
+			transform var(--transition-smooth),
+			visibility 0s linear 320ms,
+			border-color var(--transition-smooth);
+	}
+
+	.navbar__menu.is-open {
+		max-height: 400px;
+		padding: 12px;
+		visibility: visible;
+		opacity: 1;
+
+		border-color: var(--color-border);
+		transform: translateY(0);
+
+		transition:
+			max-height var(--transition-smooth),
+			padding var(--transition-smooth),
+			opacity var(--transition-smooth),
+			transform var(--transition-smooth),
+			visibility 0s,
+			border-color var(--transition-smooth);
+	}
+
+	.navbar__item {
+		width: 100%;
+	}
+
+	.navbar__link {
+		width: 100%;
+		min-height: 48px;
+		padding: 12px 14px;
+		border-radius: 10px;
+	}
+
+	.navbar__link::after {
+		display: none;
+	}
+
+	.navbar__link:hover,
+	.navbar__link.is-active {
+		color: #a7f3d0;
+		background: rgb(16 185 129 / 10%);
+	}
+
+	.navbar__actions .button__arrow {
+		display: none;
+	}
+
+	.hero {
+		padding-top: 140px;
+	}
+
+	.hero__title {
+		letter-spacing: -1.2px;
+	}
+}
+
+/* ========================================
+       9. LAYAR SANGAT KECIL
+    ======================================== */
+
+@media (max-width: 380px) {
+	.navbar__brand {
+		gap: 7px;
+		font-size: 1.05rem;
+	}
+
+	.navbar__logo {
+		width: 32px;
+		height: 32px;
+		border-radius: 10px;
+	}
+
+	.navbar__actions .button {
+		padding-inline: 11px;
+		font-size: 0.76rem;
+	}
+
+	.navbar__toggle {
+		width: 42px;
+		height: 42px;
+	}
+
+	.navbar__container {
+		gap: 8px;
+	}
+}
+
+/* ========================================
+       10. REDUCE MOTION UNTUK AKSESIBILITAS
+    ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}

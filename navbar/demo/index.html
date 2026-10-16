@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#0b1220" />
+		<link rel="stylesheet" href="stle.css">
+		<title>Nexa — Navbar Responsif</title>
+	</head>
+
+	<body>
+		<!-- NAVBAR -->
+		<header class="navbar" id="navbar">
+			<div class="navbar__container">
+				<!-- BRAND -->
+				<a
+					class="navbar__brand"
+					href="#beranda"
+					aria-label="Nexa, beranda"
+				>
+					<span class="navbar__logo" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<path
+								d="M12 3C7 3 4 7 4 12c0 3 1 5 3 7 0-5 3-10 8-13-2 3-4 7-4 12 5-1 9-6 9-12V3h-8Z"
+								fill="currentColor"
+							/>
+						</svg>
+					</span>
+					<span>Nexa</span>
+				</a>
+
+				<!-- NAVIGASI UTAMA -->
+				<nav aria-label="Navigasi utama">
+					<ul class="navbar__menu" id="navMenu">
+						<li class="navbar__item">
+							<a
+								class="navbar__link is-active"
+								href="#beranda"
+								aria-current="page"
+							>
+								Beranda
+							</a>
+						</li>
+
+						<li class="navbar__item">
+							<a class="navbar__link" href="#tentang">
+								Tentang
+							</a>
+						</li>
+
+						<li class="navbar__item">
+							<a class="navbar__link" href="#layanan">
+								Layanan
+							</a>
+						</li>
+
+						<li class="navbar__item">
+							<a class="navbar__link" href="#portofolio">
+								Portofolio
+							</a>
+						</li>
+
+						<li class="navbar__item">
+							<a class="navbar__link" href="#kontak"> Kontak </a>
+						</li>
+					</ul>
+				</nav>
+
+				<!-- AKSI DAN HAMBURGER -->
+				<div class="navbar__actions">
+					<a class="button button--primary" href="#kontak">
+						Mulai Sekarang
+						<span class="button__arrow" aria-hidden="true">→</span>
+					</a>
+
+					<button
+						class="navbar__toggle"
+						id="navToggle"
+						type="button"
+						aria-label="Buka menu navigasi"
+						aria-expanded="false"
+						aria-controls="navMenu"
+					>
+						<span class="navbar__toggle-icon" aria-hidden="true">
+							<span class="navbar__toggle-line"></span>
+							<span class="navbar__toggle-line"></span>
+							<span class="navbar__toggle-line"></span>
+						</span>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<!-- KONTEN UTAMA -->
+		<main>
+			<section class="hero" id="beranda">
+				<div class="hero__content">
+					<span class="hero__badge">Kreativitas tanpa batas</span>
+
+					<h1 class="hero__title">
+						Bangun Ide Besar,<br />
+						<span>Jadi Kenyataan.</span>
+					</h1>
+
+					<p class="hero__description">
+						Kami membantu kamu menciptakan website modern, cepat,
+						dan responsif untuk bisnis maupun personal.
+					</p>
+
+					<div class="hero__actions">
+						<a class="button button--primary" href="#layanan">
+							Jelajahi Layanan
+							<span class="button__arrow" aria-hidden="true"
+								>→</span
+							>
+						</a>
+
+						<a class="button button--secondary" href="#tentang">
+							Pelajari Lebih Lanjut
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="section" id="tentang">
+				<h2>Tentang Kami</h2>
+				<p>
+					Kami menggabungkan desain modern, pengalaman pengguna, dan
+					teknologi untuk menciptakan pengalaman digital yang baik.
+				</p>
+			</section>
+
+			<section class="section" id="layanan">
+				<h2>Layanan</h2>
+				<p>Solusi digital yang dirancang sesuai kebutuhanmu.</p>
+			</section>
+
+			<section class="section" id="portofolio">
+				<h2>Portofolio</h2>
+				<p>Jelajahi karya dan proyek yang telah kami kerjakan.</p>
+			</section>
+
+			<section class="section" id="kontak">
+				<h2>Hubungi Kami</h2>
+				<p>Mari wujudkan ide berikutnya bersama-sama.</p>
+			</section>
+		</main>
+		<script src="script.js"></script>
+	</body>
+</html>
