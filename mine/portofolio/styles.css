@@ -472,7 +472,6 @@ ul {
 	font-size: var(--font-size-md);
 	font-weight: var(--font-weight-semibold);
 	letter-spacing: 0.12em;
-	text-transform: uppercase;
 	position: relative;
 	padding-block-start: 7px;
 }
@@ -488,7 +487,7 @@ ul {
 }
 
 .about h2 {
-	font-size: clamp(2.6rem, 5vw, 5rem);
+	font-size: clamp(3rem, 5vw, 3rem);
 	margin-block: var(--space-3);
 	line-height: 1.1;
 	letter-spacing: -0.04em;
@@ -502,6 +501,88 @@ ul {
 	line-height: 1.7;
 	color: var(--color-text-muted);
 	max-width: 45ch;
+}
+
+.skills {
+	width: 100%;
+	padding: var(--space-10) var(--container-padding);
+	margin-inline: auto;
+	max-width: var(--container-width);
+}
+
+.skills-content {
+	display: grid;
+	gap: var(--space-6);
+}
+
+.skills-label {
+	color: var(--color-primary);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: 0.12em;
+	position: relative;
+	padding-block-start: 7px;
+}
+
+.skills-label::before {
+	position: absolute;
+	content: "";
+	height: 3px;
+	width: 44px;
+	background-color: var(--color-primary);
+	top: 0;
+	left: 0;
+}
+
+.skills-heading h2 {
+	font-size: clamp(3rem, 4vw, 3rem);
+	letter-spacing: -0.04em;
+	margin-block: var(--space-2);
+}
+
+.skills-heading h2 span {
+	background-color: var(--color-primary);
+	color: var(--color-text-inverse);
+}
+
+.skills-list {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	margin: 0;
+	padding: 0;
+	gap: var(--space-4);
+}
+
+.skill-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-surface);
+	padding: var(--space-4);
+	gap: var(--space-3);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	transition:
+		background-color var(--duration-normal),
+		border-color var(--duration-normal),
+		transform var(--duration-normal);
+	cursor: pointer;
+}
+
+.skill-link:hover {
+	background-color: var(--color-surface-hover);
+	border-color: var(--color-primary);
+	transform: translateY(-2px);
+}
+
+.skill-link i {
+	color: var(--color-primary);
+	font-size: clamp(1rem, 4vw, 1.4rem);
+}
+
+.skill-link .skill-name {
+	font-size: clamp(1rem, 5vw, 1.2rem);
+	font-weight: var(--font-weight-semibold);
 }
 
 @media screen and (min-width: 768px) {
@@ -540,7 +621,7 @@ ul {
 	}
 }
 
-@media screen and (max-width: 1032px) {
+@media screen and (max-width: 768px) {
 	.hero {
 		grid-template-columns: 1fr;
 		padding: var(--space-2) var(--container-padding);
@@ -567,18 +648,13 @@ ul {
 	.about-content {
 		grid-template-columns: 1fr;
 	}
-}
 
-@media screen and (min-width: 901px) and (max-width: 1032px) {
-	.about {
-		/* Sesuaikan padding khusus tablet */
+	.skills-list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
-	.about-content {
-		/* Atur kembali proporsi kolom dan gap */
-	}
-
-	.about-description {
-		/* Sesuaikan ukuran teks */
+	.skill-link {
+		padding: var(--space-2);
+		justify-content: start;
 	}
 }
