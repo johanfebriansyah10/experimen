@@ -20,7 +20,7 @@ desktopQuery.addEventListener("change", () => {
     closeMobileMenu();
 })
 
-navMenu.querySelectorAll("nav-link, nav-cta").forEach((link) => {
+navMenu.querySelectorAll(".nav-link, .nav-cta").forEach((link) => {
     link.addEventListener("click", () => {
         if (!desktopQuery.matches) {
             closeMobileMenu();
