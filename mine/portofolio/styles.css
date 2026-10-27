@@ -155,18 +155,18 @@ ul {
 }
 
 .side-header {
+	max-width: var(--container-width);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
-	padding: var(--space-4) var(--container-padding);
-	position: sticky;
-	z-index: var(--z-sticky);
-	max-width: var(--container-width);
-	margin-inline: auto;
-	top: 0;
 	background-color: var(--color-bg);
 	border-radius: var(--radius-sm);
+	padding: var(--space-4) var(--container-padding);
+	margin-inline: auto;
+	
+	position: sticky;
+	top: 0;
+	z-index: var(--z-sticky);
 }
 
 .nav-menu {

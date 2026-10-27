@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Latihan CHATGPT</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			.container {
+				width: 100%;
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 20px;
+			}
+
+			.container div {
+				display: flex;
+				align-items: stretch;
+				justify-content: center;
+				flex: 1;
+			}
+
+			.container div img {
+				max-width: 200px;
+				object-fit: cover;
+				max-height: 200px;
+				width: 100%;
+				aspect-ratio: 4/8;
+				margin-inline: auto;
+				order: 2;
+			}
+
+			.content {
+				display: flex;
+				flex-direction: column-reverse;
+				text-align: center;
+				border: 1px solid red;
+				padding: 20px 5px;
+				gap: 30px;
+				border-radius: 10px;
+				transition: transform 0.3s ease, border-color 0.3s ease;
+			}
+			.content-description {
+				order: 3;
+			}
+
+			.content-link {
+				order: 1;
+				margin-top: auto;
+			}
+
+			.content:hover {
+				border-color: yellow;
+				transform: translateY(-8px);
+			}
+
+			/* tablet */
+			@media (max-width: 1032px) {
+				.container {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
+			}
+
+			/* mobile */
+			@media (max-width: 600px) {
+				.container {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			@media (prefers-reduced-motion) {
+				.content {
+					transition: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="content">
+				<img src="mine/portofolio/assets/foto.jpg" alt="" />
+				<div class="content-description">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing
+						elit. Quasi, temporibus!
+					</p>
+				</div>
+				<a
+					href="https://github.com/johanfebriansyah10"
+					class="content-link"
+					>GitHub</a
+				>
+			</div>
+			<div class="content">
+				<img src="mine/portofolio/assets/foto-cop.jpg" alt="" />
+				<div class="content-description">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Perferendis harum libero nihil fugiat neque eligendi!
+					</p>
+				</div>
+				<a
+					href="https://github.com/johanfebriansyah10"
+					class="content-link"
+					>GitHub</a
+				>
+			</div>
+			<div class="content">
+				<img src="mine/portofolio/assets/explorelombok.png" alt="" />
+				<div class="content-description">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Molestias cumque autem alias unde animi! Dolor, illo
+						ipsam? Amet, consequuntur sint?
+					</p>
+				</div>
+				<a
+					href="https://github.com/johanfebriansyah10"
+					class="content-link"
+					>GitHub</a
+				>
+			</div>
+		</div>
+	</body>
+</html>
