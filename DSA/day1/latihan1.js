@@ -7,6 +7,17 @@ const products = [
 ];
 
 
+const productMap = new Map();
+for (let product of products) {
+    productMap.set(product.id, product)
+}
+function findProductById(id) {
+    return productMap.get(id)
+}
+console.log(findProductById(105))
+console.log(findProductById(999))
+
+
 function findProductByName(productName) {
     for (let product of products) {
         if (product.name === productName) {
@@ -14,4 +25,17 @@ function findProductByName(productName) {
         }
     }
 }
-console.log(findProductByName("Laptop"))
+
+
+function findProducts(keyword) {
+    const result = [];
+    const searchKeyword = keyword.toLowerCase().trim()
+    for (let product of products) {
+        if (product.name.toLowerCase().includes(searchKeyword)) {
+            result.push(product)
+        }
+    }
+    return result;
+}
+// console.log(findProducts('    o      '))
+// console.log(findProducts('   lap'))
