@@ -14,8 +14,6 @@ for (let product of products) {
 function findProductById(id) {
     return productMap.get(id)
 }
-console.log(findProductById(105))
-console.log(findProductById(999))
 
 
 function findProductByName(productName) {
@@ -37,5 +35,48 @@ function findProducts(keyword) {
     }
     return result;
 }
-// console.log(findProducts('    o      '))
-// console.log(findProducts('   lap'))
+
+function searchProducts(keyword) {
+    const searchProductKeyword = keyword.trim().toLowerCase()
+    return products.filter((product) => product.name.toLowerCase().includes(searchProductKeyword));
+}
+
+// console.log(searchProducts("mouse").length);
+// [{ id: 102, name: "Mouse", price: 150000 }]
+// console.log(searchProducts("o").length);
+// Laptop, Mouse, Monitor
+// console.log(searchProducts("xyz").length);
+// []
+
+// Tantangan berikutnya: cari produk sekaligus hitung hasilnya
+function searchProducts(keyword) {
+    const searchProductKeyword = keyword.trim().toLowerCase()
+    return products.filter((product) => product.name.toLowerCase().includes(searchProductKeyword));
+}
+function countSearchResults(keyword) {
+    const result = searchProducts(keyword);
+    return result.length;
+}
+
+// const result = countSearchResults("       o       ")
+// console.log(searchProducts("o"));
+// console.log(result)
+
+function filterProductsByMaxPrice(maxPrice) {
+    return products.filter((product) => product.price <= maxPrice);
+}
+
+// console.log(filterProductsByMaxPrice(500000));
+
+function searchProductsByKeywordAndPrice(keyword, maxPrice) {
+    const searchKeyword = keyword.trim().toLowerCase();
+    return products.filter((product) => product.name.toLowerCase().includes(searchKeyword) && product.price <= Number(maxPrice));
+}
+
+// console.log(searchProductsByKeywordAndPrice('    e   ', 500000))
+
+
+function sortProductsByPrice() {
+    return products.sort((productA, productB) => productA.price - productB.price);
+}
+console.log(sortProductsByPrice())
