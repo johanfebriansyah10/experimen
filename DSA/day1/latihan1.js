@@ -1,9 +1,7 @@
 const products = [
-    { id: 101, name: "Laptop", price: 10000000 },
-    { id: 102, name: "Mouse", price: 150000 },
-    { id: 103, name: "Keyboard", price: 350000 },
-    { id: 104, name: "Monitor", price: 2000000 },
-    { id: 105, name: "Headset", price: 500000 }
+    { id: 201, name: "Tablet", price: 3000000 },
+    { id: 202, name: "Charger", price: 100000 },
+    { id: 203, name: "Cable", price: 50000 }
 ];
 
 
@@ -79,4 +77,78 @@ function searchProductsByKeywordAndPrice(keyword, maxPrice) {
 function sortProductsByPrice() {
     return products.sort((productA, productB) => productA.price - productB.price);
 }
-console.log(sortProductsByPrice())
+// console.log(sortProductsByPrice())
+
+
+function findCheapestProduct() {
+    let cheapestProduct = products[0]
+    for (let product of products) {
+        if (product.price < cheapestProduct.price) {
+            cheapestProduct = product;
+        }
+    }
+    return cheapestProduct;
+}
+
+// console.log(findCheapestProduct())
+
+// const products = [
+//     { id: 201, name: "Tablet", price: 3000000 },
+//     { id: 202, name: "Charger", price: 100000 },
+//     { id: 203, name: "Cable", price: 50000 }
+// ];
+
+function findCheapestProduct() {
+    let cheapestProduct = products[0]
+    for (let product of products) {
+        if (product.price < cheapestProduct.price) {
+            cheapestProduct = product;
+        }
+    }
+    return cheapestProduct;
+}
+
+// console.log(findCheapestProduct())
+
+function findMostExpensiveProduct() {
+    let expensiveProduct = products[0];
+    for (let product of products) {
+        if (product.price > expensiveProduct.price) {
+            expensiveProduct = product;
+        }
+    }
+    return expensiveProduct;
+}
+
+// console.log(findMostExpensiveProduct())
+
+function filterProductsByPriceRange(minPrice, maxPrice) {
+    let resultProduct = [];
+    for (let product of products) {
+        if (product.price >= minPrice && product.price <= maxPrice) {
+            resultProduct.push(product)
+        }
+    }
+    return resultProduct;
+}
+// console.log(filterProductsByPriceRange(50000, 150000));
+
+function searchProductsByKeywordAndPriceRange(keyword, minPrice, maxPrice) {
+    let resultProducts = [];
+    let searchKeyword = keyword.trim().toLowerCase();
+    for (let product of products) {
+        if (product.name.toLowerCase().includes(searchKeyword) && product.price >= minPrice && product.price <= maxPrice) {
+            resultProducts.push(product)
+        }
+    }
+    return resultProducts;
+}
+// console.log(searchProductsByKeywordAndPriceRange("a", 50000, 150000))
+
+function calculateTotalPrice(products) {
+}
+
+console.log(calculateTotalPrice([
+    { id: 202, name: "Charger", price: 100000 },
+    { id: 203, name: "Cable", price: 50000 }
+]));
