@@ -145,10 +145,55 @@ function searchProductsByKeywordAndPriceRange(keyword, minPrice, maxPrice) {
 }
 // console.log(searchProductsByKeywordAndPriceRange("a", 50000, 150000))
 
-function calculateTotalPrice(products) {
+// function calculateTotalPrice(products) {
+//     let totalPrice = 0;
+//     for (let product of products) {
+//         totalPrice += product.price;
+//     }
+//     return totalPrice;
+// }
+
+// console.log(calculateTotalPrice([
+//     { id: 202, name: "Charger", price: 100000 },
+//     { id: 203, name: "Cable", price: 50000 }
+// ]));
+
+// const products = [
+//     { id: 201, name: "Tablet", price: 3000000 },
+//     { id: 202, name: "Charger", price: 100000 },
+//     { id: 203, name: "Cable", price: 50000 }
+// ];
+
+function calculateAveragePrice(products) {
+    let averagePrice = 0;
+    for (let product of products) {
+        averagePrice += product.price;
+    }
+    averagePrice = averagePrice / products.length
+    return averagePrice;
 }
 
-console.log(calculateTotalPrice([
-    { id: 202, name: "Charger", price: 100000 },
-    { id: 203, name: "Cable", price: 50000 }
-]));
+// console.log(calculateAveragePrice(products))
+
+const transactions = [
+    "Food",
+    "Transport",
+    "Food",
+    "Shopping",
+    "Transport",
+    "Food"
+];
+
+function countTransactions(transactions) {
+    let result = {};
+    for (let transaction of transactions) {
+        if (result[transaction]) {
+            result[transaction] += 1;
+        } else {
+            result[transaction] = 1;
+        }
+    }
+    return result;
+}
+
+console.log(countTransactions(transactions))
