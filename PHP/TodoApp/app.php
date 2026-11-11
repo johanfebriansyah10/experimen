@@ -1,5 +1,12 @@
 <?php
-require_once("Model/Todolist.php");
-require_once("BusinessLogic/AddTodolist.php");
-require_once("BusinessLogic/RemoveTodolist.php");
-require_once("BusinessLogic/ShowTodolist.php");
+require_once(__DIR__."/Model/Todolist.php");
+require_once(__DIR__."/BusinessLogic/AddTodolist.php");
+require_once(__DIR__."/BusinessLogic/RemoveTodolist.php");
+require_once(__DIR__."/BusinessLogic/ShowTodolist.php");
+require_once(__DIR__."/View/ViewShowTodolist.php");
+require_once(__DIR__."/View/ViewAddTodolist.php");
+require_once(__DIR__."/View/ViewRemoveTodolist.php");
+require_once(__DIR__."/Helper/input.php");
+
+
+ViewShowTodolist();

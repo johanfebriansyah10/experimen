@@ -1,9 +1,9 @@
 <?php
 
-require_once("../Helper/input.php");
-require_once("../BusinessLogic/ShowTodolist.php");
-require_once("../View/ViewAddTodolist.php");
-require_once("../View/ViewRemoveTodolist.php");
+require_once(__DIR__."/../Helper/input.php");
+require_once(__DIR__."/../BusinessLogic/ShowTodolist.php");
+require_once(__DIR__."/../View/ViewAddTodolist.php");
+require_once(__DIR__."/../View/ViewRemoveTodolist.php");
 
 function ViewShowTodolist(){
     while(true){
