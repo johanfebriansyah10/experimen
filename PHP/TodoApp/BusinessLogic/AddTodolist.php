@@ -7,5 +7,3 @@ function AddTodolist(string $todo){
 
     $todoList[$number] = $todo;
 }
-
-?>
