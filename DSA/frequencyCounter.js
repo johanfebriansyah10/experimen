@@ -31,4 +31,4 @@ function findMostFrequentNumber(numbers) {
     return mostFrequentNumber;
 }
 
-// console.log(findMostFrequentNumber(numbers))
+console.log(findMostFrequentNumber(numbers))
